@@ -1,20 +1,64 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Photos } from "./src/screens/photos";
+import { MainHeader } from "./src/components/mainHeader";
+import { SearchPhotos } from "./src/screens/searchPhotos";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const queryClient = new QueryClient();
+const Tab = createBottomTabNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Dashboard = ({ navigation }) => (
+	<>
+		<QueryClientProvider client={queryClient}>
+			<Photos />
+		</QueryClientProvider>
+	</>
+);
+const Search = ({ navigation }) => (
+	<>
+		<QueryClientProvider client={queryClient}>
+			<SearchPhotos />
+		</QueryClientProvider>
+	</>
+);
+
+const App = () => (
+	<>
+		<MainHeader />
+		<NavigationContainer>
+			<Tab.Navigator
+				initialRouteName="Dashboard"
+				screenOptions={{
+					tabBarActiveTintColor: "white",
+					tabBarStyle: {
+						backgroundColor: "black",
+					},
+				}}
+			>
+				<Tab.Screen
+					name="News Feed"
+					component={Dashboard}
+					options={{
+						headerShown: false,
+						tabBarIcon: ({ size, color }) => (
+							<Icon name={"home"} color={color} size={size} />
+						),
+					}}
+				/>
+				<Tab.Screen
+					name="Search"
+					component={Search}
+					options={{
+						headerShown: false,
+						tabBarIcon: ({ size, color }) => (
+							<Icon name={"search"} color={color} size={size} />
+						),
+					}}
+				/>
+			</Tab.Navigator>
+		</NavigationContainer>
+	</>
+);
+export default App;
