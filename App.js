@@ -9,23 +9,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const queryClient = new QueryClient();
 const Tab = createBottomTabNavigator();
 
-const Dashboard = ({ navigation }) => (
-	<>
-		<QueryClientProvider client={queryClient}>
-			<Photos />
-		</QueryClientProvider>
-	</>
-);
-const Search = ({ navigation }) => (
-	<>
-		<QueryClientProvider client={queryClient}>
-			<SearchPhotos />
-		</QueryClientProvider>
-	</>
-);
+const Dashboard = () => <Photos />;
+const Search = () => <SearchPhotos />;
 
 const App = () => (
-	<>
+	<QueryClientProvider client={queryClient}>
 		<MainHeader />
 		<NavigationContainer>
 			<Tab.Navigator
@@ -59,6 +47,6 @@ const App = () => (
 				/>
 			</Tab.Navigator>
 		</NavigationContainer>
-	</>
+	</QueryClientProvider>
 );
 export default App;

@@ -15,13 +15,14 @@ export function SearchPhotos() {
 		placeholderData: [],
 	});
 	const [highlighted, setHighlighted] = useState(false);
+	const { container, input, inputHighlight, smallImg } = styles;
 	return (
-		<View style={styles.container}>
+		<View style={container}>
 			{isError && <Text>Nastąpił błąd, spróbuj ponownie później</Text>}
 			{isLoading && <Text>Trwa ładowanie zdjęć...</Text>}
 
 			<TextInput
-				style={[styles.input, highlighted ? styles.inputHighlight : {}]}
+				style={[input, highlighted ? inputHighlight : {}]}
 				keyboardAppearance={"dark"}
 				placeholderTextColor={"#777"}
 				placeholder={highlighted ? "" : "Search..."}
@@ -39,7 +40,7 @@ export function SearchPhotos() {
 				renderItem={({ item }) => (
 					<ZoomImage
 						source={{ uri: item.url }}
-						imgStyle={styles.smallImg}
+						imgStyle={smallImg}
 						duration={200}
 						enableScaling={false}
 						easingFunc={Easing.ease}

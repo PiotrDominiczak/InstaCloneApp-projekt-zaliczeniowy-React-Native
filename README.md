@@ -1,14 +1,14 @@
-## InstaCloneApp
+# InstaCloneApp
 
 Aplikacja imitująca Instagram.
 Aplikacja działa na iOS i Android.
 Dla pobrania zdjęć zostało wykorzystane źródło danych JSONPlaceholder(https://jsonplaceholder.typicode.com/photos).
 
-# Header:
+## Header:
 
 Logo, zamockowane ikony: strzałka w dół, plus, serce, samolot imitujące wygląd instagram.
 
-# Nawigacja:
+## Nawigacja:
 
 Możliwość przejścia z ekranu „NewsFeed” do ekranu „Search” za pomocą Bottom Tab Navigatora.
 
@@ -24,7 +24,7 @@ Pojedyncza karta zdjęcia posiada:
 -   zamockowany licznik wyświetleń będący na przemian liczbą 6 i 7 cyfrową,
 -   zamockowany komentarz z wykorzystaniem Khaled ipsum, powtarzalny dla co dziesiątego zdjęcia
 
-# Ekran Search:
+## Ekran Search:
 
 Input imitujący wyszukiwarkę, wyszukiwanie nie zostało zaimplementowane.
 Lista zdjęć w formie siatki, w trzech kolumnach, możliwych do przewijania góra-dół.
