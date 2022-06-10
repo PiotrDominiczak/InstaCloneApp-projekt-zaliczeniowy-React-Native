@@ -12,7 +12,8 @@ Logo, zamockowane ikony: strzałka w dół, plus, serce, samolot imitujące wygl
 
 Możliwość przejścia z ekranu „NewsFeed” do ekranu „Search” za pomocą Bottom Tab Navigatora.
 
-Ekran News Feed:
+## Ekran News Feed:
+
 Lista zdjęć możliwych do przewijania góra-dół.
 Pojedyncza karta zdjęcia posiada:
 
